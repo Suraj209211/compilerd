@@ -1,10 +1,16 @@
 const Joi = require('joi')
-const { PROMPTV1, PROMPTV2, MULTIFILE } = require('../enums/supportedLanguages')
+const {
+    PROMPTV1, PROMPTV2, MULTIFILE,
+    JAVA, NODEJS, RUBY, SQLITE3, PHP, GO, RUST
+} = require('../enums/supportedLanguages')
 const { FRONTEND_REACT_JASMINE, FRONTEND_STATIC_JASMINE } = require('../enums/supportedMultifileSetupTypes')
 
 const isValidForExecute = async (body) => {
     const schema = Joi.object({
-        language: Joi.string().required(),
+        language: Joi.string().valid(
+            PROMPTV1, PROMPTV2, MULTIFILE,
+            JAVA, NODEJS, RUBY, SQLITE3, PHP, GO, RUST
+        ).required(),
         question: Joi.string().when('language', {
             is: [PROMPTV1, PROMPTV2],
             then: Joi.required(),
@@ -53,3 +59,4 @@ const isValidForExecute = async (body) => {
 }
 
 module.exports = { isValidForExecute }
+

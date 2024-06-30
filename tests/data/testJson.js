@@ -1,4 +1,6 @@
 const testCases = [
+   
+    // CPP STARTS
     {
         name: 'cpp : hello world',
         reqObject: {
@@ -17,6 +19,9 @@ const testCases = [
             error: 0,
         },
     },
+    
+
+
     {
         name: 'cpp : print stdin',
         reqObject: {
@@ -40,6 +45,11 @@ const testCases = [
         },
 
     },
+    // CPP ENDS
+
+
+
+    // NODEJS STARTS
     {
         name: 'nodejs : hello world',
         reqObject: {
@@ -52,6 +62,8 @@ const testCases = [
             error: 0,
         },
     },
+
+
     {
         name: 'nodejs : print stdin',
         reqObject: {
@@ -70,6 +82,11 @@ const testCases = [
             error: 0,
         },
     },
+    // NODE JS END
+
+
+
+    // PYHTON STARTS
     {
         name: 'python : hello world',
         reqObject: {
@@ -103,6 +120,10 @@ const testCases = [
             error: 0,
         },
     },
+    // PYTHON ENDS
+
+
+    // C STARTS
     {
         name: 'c : hello world',
         reqObject: {
@@ -141,6 +162,11 @@ const testCases = [
             error: 0,
         },
     },
+    // C ENDS
+
+
+
+    // JAVA STARTS
     {
         name: 'java : print stdin',
         reqObject: {
@@ -159,6 +185,8 @@ const testCases = [
             error: 0,
         },
     },
+    
+
     {
         name: 'java : print stdin',
         reqObject: {
@@ -183,6 +211,11 @@ const testCases = [
             error: 0,
         },
     },
+    // JAVA ENDS
+
+
+
+    // RUBY STARTS
     {
         name: 'ruby : print hello world',
         reqObject: {
@@ -211,6 +244,130 @@ const testCases = [
             error: 0,
         },
     },
+    // RUBY ENDS
+
+     // PHP STARTS
+    {
+        name: 'php : hello world',
+        reqObject: {
+            language: 'php',
+            script: '<?php echo "hello world"; ?>',
+        },
+        expectedResponse: {
+            val: 'hello world',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'php : print stdin',
+        reqObject: {
+            language: 'php',
+            script:
+                '<?php\n' +
+                'while($input = fgets(STDIN)) {\n' +
+                '    echo $input;\n' +
+                '}\n' +
+                '?>',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1 2 3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    //PHP ENDS
+
+
+    // Go STARS
+    {
+        name: 'go : hello world',
+        reqObject: {
+            language: 'go',
+            script:
+                'package main\n' +
+                'import "fmt"\n' +
+                'func main() {\n' +
+                '    fmt.Println("hello world")\n' +
+                '}',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'go : print stdin',
+        reqObject: {
+            language: 'go',
+            script:
+                'package main\n' +
+                'import (\n' +
+                '    "bufio"\n' +
+                '    "fmt"\n' +
+                '    "os"\n' +
+                ')\n' +
+                'func main() {\n' +
+                '    scanner := bufio.NewScanner(os.Stdin)\n' +
+                '    for scanner.Scan() {\n' +
+                '        fmt.Println(scanner.Text())\n' +
+                '    }\n' +
+                '}',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1\n2\n3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    // GO ENDS
+
+    
+
+    // RUST STARTS
+    {
+        name: 'rust : hello world',
+        reqObject: {
+            language: 'rust',
+            script:
+                'fn main() {\n' +
+                '    println!("hello world");\n' +
+                '}',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'rust : print stdin',
+        reqObject: {
+            language: 'rust',
+            script:
+                'use std::io::{self, BufRead};\n' +
+                'fn main() {\n' +
+                '    let stdin = io::stdin();\n' +
+                '    for line in stdin.lock().lines() {\n' +
+                '        println!("{}", line.unwrap());\n' +
+                '    }\n' +
+                '}',
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1\n2\n3\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    // RUST ENDS
+
+
+
+    //TEST STARTS NODE JS
     {
         name: 'TLE test',
         reqObject: {
@@ -223,6 +380,10 @@ const testCases = [
             error: 1,
         },
     },
+    //TEST ENDS NODE JS
+
+
+    // MLE TEST STARTS
     {
         name: 'MLE test',
         reqObject: {
@@ -235,6 +396,8 @@ const testCases = [
             error: 1,
         },
     },
+
+    
     {
         name: 'MLE test 2',
         reqObject: {
@@ -274,6 +437,12 @@ const testCases = [
             error: 1,
         },
     },
+    // MLE TEST ENDS
+
+
+
+
+    // OPEN AI TEST FOR PROMPT 
     {
         name: 'OPEN AI test promptv1',
         reqObject: {
@@ -298,6 +467,8 @@ const testCases = [
             error: 0,
         },
     },
+    // OPEN AI TEST ENDS
+
 ]
 
 module.exports = { testCases }
