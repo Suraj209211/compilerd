@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const { isValidForExecute } = require('../path/to/your/validator')
+const { isValidForExecute } = require('./code.validator')
 
 describe('Validation Tests', () => {
     it('should validate a valid body for JAVA language', async () => {
