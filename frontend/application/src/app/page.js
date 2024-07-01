@@ -1,4 +1,4 @@
-import CodeRunner from '../app/components/CodeRunner';
+import CodeRunner from './components/CodeRunner';
 
 export default function Page() {
   return (
